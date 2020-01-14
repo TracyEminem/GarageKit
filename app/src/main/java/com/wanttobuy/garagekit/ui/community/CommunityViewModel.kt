@@ -1,10 +1,10 @@
-package com.wanttobuy.garagekit.ui.dashboard
+package com.wanttobuy.garagekit.ui.community
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.aleyn.mvvm.base.BaseViewModel
 
-class DashboardViewModel : ViewModel() {
+class CommunityViewModel : BaseViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"

@@ -1,10 +1,10 @@
-package com.wanttobuy.garagekit.ui.notifications
+package com.wanttobuy.garagekit.ui.mine
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.aleyn.mvvm.base.BaseViewModel
 
-class NotificationsViewModel : ViewModel() {
+class MineViewModel : BaseViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is notifications Fragment"

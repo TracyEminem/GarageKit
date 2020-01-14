@@ -1,10 +1,10 @@
-package com.wanttobuy.garagekit.ui.home
+package com.wanttobuy.garagekit.ui.garagekit
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.aleyn.mvvm.base.BaseViewModel
 
-class HomeViewModel : ViewModel() {
+class GarageKitViewModel : BaseViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"
