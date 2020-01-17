@@ -1,7 +1,6 @@
 package com.wanttobuy.garagekit.ui.garagekit
 
-import androidx.databinding.ViewDataBinding
-import com.aleyn.mvvm.base.BaseFragment
+import com.wanttobuy.garagekit.base.BaseFragment
 import com.wanttobuy.garagekit.databinding.FragmentGaragekitBinding
 
 class GarageKitFragment : BaseFragment<GarageKitViewModel,FragmentGaragekitBinding>() {

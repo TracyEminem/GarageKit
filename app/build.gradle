@@ -26,6 +26,10 @@ android {
     dataBinding {
         enabled = true
     }
+    compileOptions {
+        sourceCompatibility = kotlin_version
+        targetCompatibility = kotlin_version
+    }
 }
 
 dependencies {

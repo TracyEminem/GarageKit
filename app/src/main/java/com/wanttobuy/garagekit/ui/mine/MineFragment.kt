@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.aleyn.mvvm.base.BaseFragment
+import com.wanttobuy.garagekit.base.BaseFragment
 import com.wanttobuy.garagekit.R
 import com.wanttobuy.garagekit.databinding.FragmentMineBinding
 
