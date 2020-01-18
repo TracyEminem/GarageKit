@@ -13,24 +13,24 @@ import com.wanttobuy.garagekit.databinding.FragmentMineBinding
 
 class MineFragment : BaseFragment<MineViewModel,FragmentMineBinding>() {
     override fun layoutId(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+       return R.layout.fragment_mine
     }
 
 
     private lateinit var mineViewModel: MineViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        mineViewModel =
-            ViewModelProviders.of(this).get(MineViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_mine, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        mineViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
-    }
+//    override fun onCreateView(
+//        inflater: LayoutInflater,
+//        container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        mineViewModel =
+//            ViewModelProviders.of(this).get(MineViewModel::class.java)
+//        val root = inflater.inflate(R.layout.fragment_mine, container, false)
+//        val textView: TextView = root.findViewById(R.id.text_notifications)
+//        mineViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
+//        return root
+//    }
 }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/sdv_cover"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        app:roundedCornerRadius="3dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/black_text"
+        android:text="名称"
+        app:layout_constraintLeft_toRightOf="@id/sdv_cover"
+        app:layout_constraintTop_toTopOf="@id/sdv_cover"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_name"
+        android:layout_marginTop="5dp"
+        />
+
+
+    <com.iarcuschin.simpleratingbar.SimpleRatingBar
+        android:id="@+id/star_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srb_starSize="11dp"
+        app:srb_starsSeparation="1dp"
+        app:srb_rating="5.0"
+        app:srb_isIndicator="true"
+        app:srb_numberOfStars="5"
+        app:srb_starBorderWidth="0.5"
+        app:srb_borderColor="@color/star_fill"
+        app:srb_fillColor="@color/star_fill"
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:text="9.0"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintLeft_toRightOf="@id/star_count"
+        app:layout_constraintTop_toTopOf="@id/star_count"
+        app:layout_constraintBottom_toBottomOf="@id/star_count"
+        android:layout_marginLeft="5dp"
+        android:includeFontPadding="false"
+        android:id="@+id/tv_rate"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/sdv_cover"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        android:layout_marginBottom="5dp"
+        android:includeFontPadding="false"
+        android:textColor="@color/grey_text"
+        android:textSize="12dp"
+        android:text="万代"
+        android:id="@+id/tv_series"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

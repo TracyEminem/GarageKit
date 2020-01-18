@@ -30,6 +30,32 @@ class GarageKitNetwork {
 
     suspend fun getBannerList() = mService.getBannerList()
 
+    suspend fun commentShare(id:String) = mService.commentShare(id)
+
+    suspend fun getSearchHistory() = mService.getSearchHistory()
+
+    suspend fun unCollect(hobby_id:String) = mService.unCollect(hobby_id)
+
+    suspend fun getPageList() = mService.getPageList()
+
+    suspend fun getDetail(id:String) = mService.getDetail(id)
+
+    suspend fun collect(hobby_id:String) = mService.collect(hobby_id)
+
+    suspend fun getItemComment(hobby_id:String) = mService.getItemComment(hobby_id)
+
+    suspend fun createHobby(hobby:MutableMap<String,String>) = mService.createHobby(hobby)
+
+    suspend fun comment(comment:MutableMap<String,String>) = mService.comment(comment)
+
+    suspend fun getPagedCommentList(id:String,page:String,pagesize:String) = mService.getPagedCommentList(id,page,pagesize)
+
+    suspend fun agreeComemnt(id:String) = mService.agreeComemnt(id)
+
+    suspend fun postAdvice(title:String,content:String) = mService.postAdvice(title, content)
+
+    suspend fun editInfo(infoMap:MutableMap<String,String>) = mService.editInfo(infoMap)
+
     companion object{
 
         @Volatile

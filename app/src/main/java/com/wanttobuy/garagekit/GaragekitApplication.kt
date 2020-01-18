@@ -12,8 +12,14 @@ import com.blankj.utilcode.util.LogUtils
  */
 class GaragekitApplication : BaseApplication() {
 
+    companion object{
+        var instance :GaragekitApplication? =null
+    }
+
     override fun onCreate() {
         super.onCreate()
+
+        instance = this
 
         LogUtils.getConfig().run {
             isLogSwitch = BuildConfig.DEBUG

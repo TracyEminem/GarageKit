@@ -1,0 +1,18 @@
+package com.wanttobuy.garagekit.common
+
+/**
+ * Created by TracyEminem on 2019/6/26 下午1:50.
+ */
+
+const val PREF_USER = "PREF_USER"
+const val PREF_SIGNUP_CODE_REF_ID = "PREF_SIGNUP_CODE_REF_ID"
+// Directory.
+const val PREF_DIRECTORY_GROUP = "PREF_DIRECTORY_GROUP"
+
+const val PREF_USER_PROFILE = "PREF_USER_PROFILE"
+
+const val PREF_APP_NAME = "PEIPEI"
+const val PREF_ACCESS_TOKEN_AUTH = "PREF_ACCESS_TOKEN_AUTH"
+const val PREF_ACCESS_TOKEN_GUEST = "PREF_ACCESS_TOKEN_GUEST"
+const val PREF_ACCESS_TOKEN_REFRESH = "PREF_ACCESS_TOKEN_REFRESH"
+const val PREF_ACCESS_TOKEN = "PREF_ACCESS_TOKEN"

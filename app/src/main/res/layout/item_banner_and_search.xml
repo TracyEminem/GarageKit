@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.youth.banner.Banner
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/banner"
+        app:image_scale_type="center_inside"
+        app:indicator_drawable_selected="@color/colorPrimary"
+        app:indicator_drawable_unselected="@color/white"
+        app:indicator_height="6dp"
+        app:indicator_margin="3dp"
+        app:indicator_width="6dp"
+        />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/banner"
+        android:background="@drawable/search_background"
+        android:id="@+id/fl_search"
+        />
+
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        app:layout_constraintTop_toTopOf="@id/fl_search"
+        app:layout_constraintBottom_toBottomOf="@id/fl_search"
+        app:layout_constraintLeft_toLeftOf="@id/fl_search"
+        android:layout_marginLeft="13dp"
+        android:background="@drawable/icon_search"
+        android:id="@+id/iv_search"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:textColor="@color/light_grey_text"
+        app:layout_constraintTop_toTopOf="@id/fl_search"
+        app:layout_constraintBottom_toBottomOf="@id/fl_search"
+        app:layout_constraintLeft_toRightOf="@id/iv_search"
+        android:layout_marginLeft="8dp"
+        android:text="请输入角色名称"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

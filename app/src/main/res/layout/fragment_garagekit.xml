@@ -6,26 +6,273 @@
         <variable
             name="homeViewModel"
             type="com.wanttobuy.garagekit.ui.garagekit.GarageKitViewModel"/>
+
     </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:id="@+id/csl_out"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/text_home"
+
+        <com.youth.banner.Banner
             android:layout_width="match_parent"
+            android:layout_height="110dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/banner"
+            app:image_scale_type="center_inside"
+            app:indicator_drawable_selected="@color/colorPrimary"
+            app:indicator_drawable_unselected="@color/white"
+            app:indicator_height="6dp"
+            app:indicator_margin="3dp"
+            app:indicator_width="6dp"
+            />
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toBottomOf="@id/banner"
+            android:background="@drawable/search_background"
+            android:id="@+id/fl_search"
+            />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            app:layout_constraintTop_toTopOf="@id/fl_search"
+            app:layout_constraintBottom_toBottomOf="@id/fl_search"
+            app:layout_constraintLeft_toLeftOf="@id/fl_search"
+            android:layout_marginLeft="13dp"
+            android:background="@drawable/icon_search"
+            android:id="@+id/iv_search"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="12dp"
+            android:textColor="@color/light_grey_text"
+            app:layout_constraintTop_toTopOf="@id/fl_search"
+            app:layout_constraintBottom_toBottomOf="@id/fl_search"
+            app:layout_constraintLeft_toRightOf="@id/iv_search"
+            android:layout_marginLeft="8dp"
+            android:text="请输入角色名称"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:text="角色"
+            android:id="@+id/tv_role"
+            app:layout_constraintTop_toBottomOf="@id/fl_search"
+            app:layout_constraintLeft_toLeftOf="@id/fl_search"
+            android:layout_marginTop="15dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:text="筛选"
+            android:textSize="16dp"
+            app:layout_constraintRight_toRightOf="@id/fl_search"
+            app:layout_constraintTop_toTopOf="@id/tv_role"
+            android:id="@+id/tv_filter"
+            />
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            app:layout_constraintLeft_toRightOf="@id/tv_role"
+            app:layout_constraintRight_toLeftOf="@id/tv_filter"
+            app:layout_constraintTop_toTopOf="@id/tv_role"
+            app:layout_constraintBottom_toBottomOf="@id/tv_role"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:id="@+id/tl_role"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:text="厂商"
+            app:layout_constraintTop_toBottomOf="@id/tv_role"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role"
+            android:layout_marginTop="15dp"
+            android:id="@+id/tv_factory"
+            />
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            app:layout_constraintLeft_toLeftOf="@id/tl_role"
+            app:layout_constraintRight_toRightOf="@id/tl_role"
+            app:layout_constraintTop_toTopOf="@id/tv_factory"
+            app:layout_constraintBottom_toBottomOf="@id/tv_factory"
+            android:id="@+id/tl_factory"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_factory"
+            app:layout_constraintLeft_toLeftOf="@id/tv_factory"
+            android:layout_marginTop="15dp"
+            android:text="系列"
+            android:id="@+id/tv_series"
+            />
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            app:layout_constraintLeft_toLeftOf="@id/tl_role"
+            app:layout_constraintRight_toRightOf="@id/tl_role"
+            app:layout_constraintTop_toTopOf="@id/tv_series"
+            app:layout_constraintBottom_toBottomOf="@id/tv_series"
+            android:id="@+id/tl_series"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:text="年代"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role"
+            app:layout_constraintTop_toBottomOf="@id/tv_series"
+            android:layout_marginTop="15dp"
+            android:id="@+id/tv_century"
+            />
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            app:layout_constraintLeft_toLeftOf="@id/tl_role"
+            app:layout_constraintRight_toRightOf="@id/tl_role"
+            app:layout_constraintTop_toTopOf="@id/tv_century"
+            app:layout_constraintBottom_toBottomOf="@id/tv_century"
+            android:id="@+id/tl_century"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tl_century"
+            android:background="@color/divider_color"
+            android:layout_marginTop="10dp"
+            app:layout_goneMarginTop="10dp"
+            android:id="@+id/fl_divider"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fl_divider"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="15dp"
+            android:text="综合排序"
+            android:id="@+id/tv_total"
+            android:textSize="12dp"
+            app:layout_constraintRight_toLeftOf="@+id/tv_grade"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey_text"
+            android:textSize="12dp"
+            app:layout_constraintLeft_toRightOf="@id/tv_total"
+            app:layout_constraintTop_toTopOf="@id/tv_total"
+            android:text="评分"
+            android:id="@+id/tv_grade"
+            app:layout_constraintRight_toLeftOf="@+id/tv_time"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/tv_grade"
+            app:layout_constraintTop_toTopOf="@id/tv_grade"
+            android:text="时间"
+            android:id="@+id/tv_time"
+            android:textColor="@color/grey_text"
+            android:textSize="12dp"
+            app:layout_constraintRight_toLeftOf="@+id/tv_popularity"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey_text"
+            android:text="人气"
+            android:textSize="12dp"
+            app:layout_constraintTop_toTopOf="@id/tv_total"
+            app:layout_constraintLeft_toRightOf="@id/tv_time"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/tv_popularity"
+            android:layout_marginRight="15dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_small_arrow_up"
+            app:layout_constraintLeft_toRightOf="@id/tv_time"
+            app:layout_constraintTop_toTopOf="@id/tv_time"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/iv_up"
+            android:layout_marginTop="5dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_small_arrow_down"
+            app:layout_constraintLeft_toLeftOf="@id/iv_up"
+            app:layout_constraintTop_toBottomOf="@id/iv_up"
+            android:layout_marginTop="5dp"
+            android:id="@+id/iv_down"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_color"
+            app:layout_constraintTop_toBottomOf="@id/tv_total"
+            android:layout_marginTop="10dp"
+            android:id="@+id/fl_divider_line"
+            />
+
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/fl_divider_line"-->
+<!--            android:id="@+id/rv_garagekit"-->
+<!--            />-->
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
 
 </layout>
