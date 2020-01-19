@@ -112,13 +112,25 @@
             android:id="@+id/fl_divider_verify"
             />
 
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            app:layout_constraintLeft_toLeftOf="@id/tv_welcome"
+            app:layout_constraintRight_toRightOf="@id/sdv_logo"
+            app:layout_constraintTop_toBottomOf="@id/fl_divider_verify"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:id="@+id/et_password"
+            android:hint="密码"
+            />
+
         <Button
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:background="@drawable/selector_regiter_button"
             app:layout_constraintLeft_toLeftOf="@id/tv_welcome"
             app:layout_constraintRight_toRightOf="@id/sdv_logo"
-            app:layout_constraintTop_toBottomOf="@id/fl_divider_verify"
+            app:layout_constraintTop_toBottomOf="@id/et_password"
             android:layout_marginTop="15dp"
             android:text="登录"
             android:textColor="@color/white"

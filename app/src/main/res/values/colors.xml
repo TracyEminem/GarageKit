@@ -11,6 +11,7 @@
     <color name="grey_text">#888888</color>
     <color name="black_text">#222222</color>
     <color name="star_fill">#ffc149</color>
+    <color name="light_black">#555555</color>
 
 
 </resources>
