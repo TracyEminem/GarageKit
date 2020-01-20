@@ -11,18 +11,63 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/text_notifications"
+
+        <FrameLayout
             android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:id="@+id/sdv_avatar"
+            app:placeholderImage="@drawable/default_avatar"
+            app:placeholderImageScaleType="fitXY"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/sdv_avatar"
+            app:layout_constraintLeft_toRightOf="@id/sdv_avatar"
+            android:layout_marginLeft="20dp"
+            android:textSize="16dp"
+            android:textColor="@color/white"
+            android:text="名字"
+            android:id="@+id/tv_name"
+            app:layout_constraintBottom_toTopOf="@+id/progress_next_level"
+            />
+
+        <ProgressBar
+            android:id="@+id/progress_next_level"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="94dp"
+            android:layout_height="4dp"
+            android:max="100"
+            android:progressDrawable="@drawable/coach_level_progress"
+            app:layout_constraintLeft_toLeftOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintBottom_toTopOf="@+id/tv_level"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            app:layout_constraintLeft_toLeftOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/progress_next_level"
+            app:layout_constraintBottom_toBottomOf="@id/sdv_avatar"
+            android:id="@+id/tv_level"
+            android:includeFontPadding="false"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

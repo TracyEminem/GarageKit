@@ -12,6 +12,7 @@ import com.wanttobuy.garagekit.R
 import com.wanttobuy.garagekit.databinding.FragmentMineBinding
 
 class MineFragment : BaseFragment<MineViewModel,FragmentMineBinding>() {
+
     override fun layoutId(): Int {
        return R.layout.fragment_mine
     }

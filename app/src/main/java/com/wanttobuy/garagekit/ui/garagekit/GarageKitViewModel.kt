@@ -8,10 +8,6 @@ import com.wanttobuy.garagekit.utils.InjectorUtil
 
 class GarageKitViewModel : BaseViewModel() {
 
-//    private val _text = MutableLiveData<String>().apply {
-//        value = "This is home Fragment"
-//    }
-//    val text: LiveData<String> = _text
 
     private val garageKitRepository by lazy { InjectorUtil.getGarageKitRepository() }
 

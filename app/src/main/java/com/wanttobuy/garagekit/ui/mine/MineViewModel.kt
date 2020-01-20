@@ -6,8 +6,7 @@ import com.aleyn.mvvm.base.BaseViewModel
 
 class MineViewModel : BaseViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
-    }
-    val text: LiveData<String> = _text
+
+
+
 }
