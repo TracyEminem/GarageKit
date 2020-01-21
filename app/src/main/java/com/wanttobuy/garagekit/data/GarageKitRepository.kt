@@ -3,7 +3,10 @@ package com.wanttobuy.garagekit.data
 import com.aleyn.mvvm.base.BaseModel
 import com.wanttobuy.garagekit.base.BaseResponse
 import com.wanttobuy.garagekit.data.banner.BannerData
+import com.wanttobuy.garagekit.data.category.Category
+import com.wanttobuy.garagekit.data.garageKit.GarageKitList
 import com.wanttobuy.garagekit.data.http.GarageKitNetwork
+import com.wanttobuy.garagekit.data.sign.SignInData
 
 /**
  *
@@ -26,12 +29,12 @@ class GarageKitRepository private constructor(private val network: GarageKitNetw
         network.logout()
     }
 
-    suspend fun signIn(){
-        network.signIn()
+    suspend fun signIn() : BaseResponse<SignInData>{
+        return network.signIn()
     }
 
-    suspend fun getCategory(){
-        network.getCategory()
+    suspend fun getCategory() : BaseResponse<Category>{
+        return network.getCategory()
     }
 
     suspend fun getUploadToken(){
@@ -54,8 +57,8 @@ class GarageKitRepository private constructor(private val network: GarageKitNetw
         network.unCollect(id)
     }
 
-    suspend fun getPageList(){
-        network.getPageList()
+    suspend fun getPageList() : BaseResponse<GarageKitList>{
+        return network.getPageList()
     }
 
     suspend fun getDetail(id:String){

@@ -4,11 +4,11 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.drakeet.multitype.MultiTypeAdapter
 import com.wanttobuy.garagekit.R
+import kotlinx.android.synthetic.main.pull_refresh_layout.view.*
 
 /**
  *
@@ -21,10 +21,10 @@ class RefreshLayout @JvmOverloads constructor(context: Context,
                                               attrs: AttributeSet? = null,
                                               defStyleAttr: Int = 0)  : FrameLayout(context, attrs, defStyleAttr){
 
-    lateinit var srlRefresh:SwipeRefreshLayout
-    lateinit var mRecyclerView:RecyclerView
-    lateinit var flEmpty:FrameLayout
-    lateinit var tvReload:TextView
+//    lateinit var srlRefresh:SwipeRefreshLayout
+//    lateinit var mRecyclerView:RecyclerView
+//    lateinit var flEmpty:FrameLayout
+//    lateinit var tvReload:TextView
 
     init {
 
@@ -40,15 +40,53 @@ class RefreshLayout @JvmOverloads constructor(context: Context,
     }
 
     public fun addItemDecoration(itemDecoration: RecyclerView.ItemDecoration){
-        mRecyclerView.addItemDecoration(itemDecoration)
+        rv_records.addItemDecoration(itemDecoration)
     }
 
     fun setLayoutManager(layoutManager: RecyclerView.LayoutManager?) {
-        mRecyclerView.setLayoutManager(layoutManager)
+        rv_records.setLayoutManager(layoutManager)
     }
 
     fun setAdapter(adapter: MultiTypeAdapter) {
-        mRecyclerView.setAdapter(adapter)
+        rv_records.setAdapter(adapter)
+    }
+
+    fun setItemAnimator(itemAnimator: RecyclerView.ItemAnimator){
+        rv_records.itemAnimator = itemAnimator
+    }
+
+    fun onLoadingData(runnable: Runnable){
+        srl_refresh.isRefreshing = true
+        srl_refresh.post(runnable)
+    }
+
+    fun setRefreshing(reRefreshing:Boolean){
+        srl_refresh.isRefreshing = reRefreshing
+    }
+
+    fun onLoadMoreCompleted(){
+
+    }
+
+    fun onRefreshCompleted(){
+        srl_refresh.isRefreshing = false
+    }
+
+    fun setOnRefreshListener(onRefreshListener: SwipeRefreshLayout.OnRefreshListener) {
+        srl_refresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
+            override fun onRefresh() {
+                fl_empty.setVisibility(View.GONE)
+                onRefreshListener.onRefresh()
+            }
+        })
+    }
+
+    fun showEmptyView(show: Boolean) {
+        if (show) {
+            fl_empty.setVisibility(View.VISIBLE)
+        } else {
+            fl_empty.setVisibility(View.GONE)
+        }
     }
 
 

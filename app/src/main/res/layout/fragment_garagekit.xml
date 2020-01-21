@@ -6,6 +6,9 @@
         <variable
             name="homeViewModel"
             type="com.wanttobuy.garagekit.ui.garagekit.GarageKitViewModel"/>
+        <variable
+            name="bannerData"
+            type="com.wanttobuy.garagekit.data.banner.BannerData" />
 
     </data>
 
@@ -90,7 +93,7 @@
             />
 
         <com.google.android.material.tabs.TabLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="24dp"
             app:layout_constraintLeft_toRightOf="@id/tv_role"
             app:layout_constraintRight_toLeftOf="@id/tv_filter"
@@ -99,7 +102,21 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:id="@+id/tl_role"
+            app:tabBackground="@drawable/selector_tab"
+            android:background="@color/white"
             />
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="24dp"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/tv_role"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/tv_filter"-->
+<!--            app:layout_constraintTop_toTopOf="@id/tv_role"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/tv_role"-->
+<!--            android:layout_marginLeft="15dp"-->
+<!--            android:layout_marginRight="15dp"-->
+<!--            android:id="@+id/rv_role"-->
+<!--            />-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -121,6 +138,12 @@
             app:layout_constraintTop_toTopOf="@id/tv_factory"
             app:layout_constraintBottom_toBottomOf="@id/tv_factory"
             android:id="@+id/tl_factory"
+            app:tl_textSelectColor="@color/white"
+            app:tl_textUnselectColor="@color/black_text"
+            app:tl_underline_height="0dp"
+            app:tl_indicator_color="@color/colorPrimary"
+            app:tl_indicator_corner_radius="3dp"
+            app:tl_indicator_height="24dp"
             />
 
         <TextView
@@ -261,12 +284,15 @@
             />
 
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/fl_divider_line"-->
-<!--            android:id="@+id/rv_garagekit"-->
-<!--            />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/fl_divider_line"
+            android:id="@+id/rv_garagekit"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:itemBinding="@{homeViewModel.itemBinding}"
+            app:items="@{homeViewModel.items}"
+            />
 
 
 

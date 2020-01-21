@@ -16,8 +16,8 @@ class SharedPreferenceUtils{
 
 
     companion object {
-         var mSharedPreference:SharedPreferences = PreferenceManager.getDefaultSharedPreferences(GaragekitApplication.instance)
-        var gson:Gson = Gson()
+         var mSharedPreference:SharedPreferences = PreferenceManager.getDefaultSharedPreferences(GaragekitApplication.instance?.applicationContext)
+         var gson:Gson = Gson()
 
         fun getIntance(context: Context):SharedPreferences{
             return mSharedPreference

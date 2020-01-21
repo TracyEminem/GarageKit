@@ -11,7 +11,6 @@ import okhttp3.internal.platform.Platform
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
-import java.lang.RuntimeException
 import java.util.concurrent.TimeUnit
 
 /**
@@ -53,11 +52,10 @@ class RetrofitClient {
             val authorised = originalRequest.newBuilder()
                 .header(
                     "Authorization",
-                    "Bearer " + SharedPreferenceUtils.getString(
+                    SharedPreferenceUtils.getString(
                         PREF_ACCESS_TOKEN_AUTH,
                         GaragekitApplication.instance?.applicationContext!!
-                    )
-                )
+                    ))
                 .header("Content-Type", "application/json; charset=utf-8")
                 .build()
             return chain.proceed(authorised)
@@ -67,6 +65,23 @@ class RetrofitClient {
             return request.headers().get("Authorization") != null
         }
 
+    }
+
+    internal class TokenAuthenticator : Authenticator {
+        override fun authenticate(
+            route: Route?,
+            response: Response
+        ): Request? { //todo
+//刷新token
+            return response.request().newBuilder()
+                .header(
+                    "Authorization",
+                    SharedPreferenceUtils.getString(
+                        PREF_ACCESS_TOKEN_AUTH,
+                        GaragekitApplication.instance?.applicationContext!!
+                    ))
+                .build()
+        }
     }
 
     private fun getOkHttpClient():OkHttpClient{
@@ -80,6 +95,7 @@ class RetrofitClient {
                 requestTag = "Response"
             })
             .addInterceptor(TokenAuthInterceptor())
+            .authenticator(TokenAuthenticator())
             .writeTimeout(20L,TimeUnit.SECONDS)
             .connectionPool(ConnectionPool(8,15,TimeUnit.SECONDS))
             .build()

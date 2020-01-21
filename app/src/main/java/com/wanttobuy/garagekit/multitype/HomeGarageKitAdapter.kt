@@ -1,4 +1,4 @@
-package com.wanttobuy.multitype
+package com.wanttobuy.garagekit.multitype
 
 import android.view.LayoutInflater
 import android.view.View
