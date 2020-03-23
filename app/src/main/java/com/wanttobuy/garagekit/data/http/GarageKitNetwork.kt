@@ -56,6 +56,37 @@ class GarageKitNetwork {
 
     suspend fun editInfo(infoMap:MutableMap<String,String>) = mService.editInfo(infoMap)
 
+    suspend fun getZanMsgList(page:Int) = mService.getZanMsgList(page)
+
+    suspend fun getSysMsgList(page: Int) = mService.getSysMsgList(page)
+
+    suspend fun getReplayMsgList(page: Int) = mService.getReplayMsgList(page)
+
+    suspend fun getMyHomePage() = mService.getMyHomePage()
+
+    suspend fun getOtherHome() = mService.getOtherHome()
+
+    suspend fun getEvaluateList(id:String,page: Int,page_size:String) = mService.getEvaluateList(id, page, page_size)
+
+    suspend fun evaliate(hobby_id:String,recommend:String,style:String,coating:String,sculpture:String,title:String,content:String) = mService.evaliate(hobby_id, recommend, style, coating, sculpture, title, content)
+
+    suspend fun getCommonEvaluate(hobby_id:String,recommend:String,style:String,coating:String,sculpture:String,view:String,images:String) = mService.getCommonEvaluate(hobby_id, recommend, style, coating, sculpture, view, images)
+
+    suspend fun getInfo(id:String) = mService.getInfo(id)
+
+    suspend fun getDetailComments(id:String) = mService.getDetailComments(id)
+
+    suspend fun getPagedComments(bbs_id:String,uid:String,page:String) = mService.getPagedComments(bbs_id, uid, page)
+
+    suspend fun PostBBSComments(bbs_id:String,content: String) = mService.PostBBSComments(bbs_id, content)
+
+    suspend fun getUserInfo() = mService.getUserInfo()
+
+    suspend fun zan(id: String) = mService.zan(id)
+
+//    suspend fun
+
+
     companion object{
 
         @Volatile

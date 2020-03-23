@@ -25,7 +25,7 @@ class GarageKitViewModel : BaseViewModel() {
     var mBanners = MutableLiveData<List<BannerData>>()
     var category = MutableLiveData<Category>()
     var itemBinding = MutableLiveData<GarageKitList>()
-    var garageKitItem = ObservableArrayList<Data>()
+    var garageKitItem = MutableLiveData<List<Data>>()
 
 //    fun getBanner(){
 //        launchOnlyresult({ garageKitRepository.getBannerList() },{mBanners.value = it})
@@ -49,6 +49,13 @@ class GarageKitViewModel : BaseViewModel() {
                             garageKitRepository.getCategory()
                         }
                     }else throw ResponseThrowable(it.code,it.message)
+                }.flatMapConcat{
+                    return@flatMapConcat if(it.isSuccess()){
+                        category.value = it.data
+                        launchFlow{
+                            garageKitRepository.getPageList()
+                        }
+                    }else throw ResponseThrowable(it.code,it.message)
                 }.onStart { defUI.showDialog.postValue(null) }
                 .flowOn(Dispatchers.Main)
                 .onCompletion { defUI.dismissDialog.call() }
@@ -58,7 +65,7 @@ class GarageKitViewModel : BaseViewModel() {
                     LogUtils.d("${err.code}: ${err.message}")
                 }
                 .collect {
-                    if(it.isSuccess()) category.value = it.data
+                    if(it.isSuccess()) garageKitItem.value = it.data.data
                 }
         }
     }

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/csl_detail"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:id="@+id/sdv_avatar"
+            app:roundedCornerRadius="3dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/black_text"
+            app:layout_constraintTop_toTopOf="@id/sdv_avatar"
+            app:layout_constraintLeft_toRightOf="@id/sdv_avatar"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_name"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="118dp"
+            android:layout_height="32dp"
+            android:elevation="2dp"
+            app:layout_constraintLeft_toLeftOf="@id/tv_name"
+            app:layout_constraintBottom_toBottomOf="@id/sdv_avatar"
+            app:cardCornerRadius="2dp"
+            android:id="@+id/cv_stared"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_stared"
+            android:textColor="@color/black_text"
+            android:layout_gravity="center"
+            android:textSize="14dp"
+            android:text="已种草"
+            />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="118dp"
+            android:layout_height="32dp"
+            android:id="@+id/cv_market"
+            app:layout_constraintBottom_toBottomOf="@id/cv_stared"
+            app:layout_constraintLeft_toRightOf="@id/cv_stared"
+            android:layout_marginLeft="10dp"
+            android:elevation="2dp"
+            app:cardCornerRadius="2dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_market"
+                android:textColor="@color/black_text"
+                android:layout_gravity="center"
+                android:textSize="14dp"
+                android:text="已打分"
+                />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sdv_avatar"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="17dp"
+            android:elevation="2dp"
+            android:id="@+id/cv_detail"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_text"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cv_detail"
+            android:layout_marginTop="30dp"
+            android:text="基本信息"
+            android:textStyle="bold"
+            android:id="@+id/tv_role_detail"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_role"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="29dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_role_detail"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/grey_text"
+            android:text="角色"
+            android:textSize="14dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="96dp"
+            app:layout_constraintTop_toTopOf="@id/tv_role"
+            android:textSize="14dp"
+            android:textColor="@color/black_text"
+            android:text="爱德华"
+            android:id="@+id/tv_role_name"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role"
+            style="@style/garakit_detail_grey_text_style"
+            app:layout_constraintTop_toBottomOf="@id/tv_role"
+            android:text="厂商"
+            android:id="@+id/tv_factory"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_black_text_style"
+            android:text="messs"
+            app:layout_constraintBottom_toBottomOf="@id/tv_factory"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role_name"
+            android:id="@+id/tv_factory_name"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_grey_text_style"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role"
+            app:layout_constraintTop_toBottomOf="@id/tv_factory"
+            android:text="系列"
+            android:id="@+id/tv_series"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_black_text_style"
+            app:layout_constraintLeft_toLeftOf="@id/tv_factory_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_series"
+            android:text="porta"
+            android:id="@+id/tv_series_name"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_grey_text_style"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role"
+            app:layout_constraintTop_toBottomOf="@id/tv_series"
+            android:text="发售日"
+            android:id="@+id/tv_date"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_black_text_style"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_date"
+            android:text="2019"
+            android:id="@+id/tv_date_name"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_grey_text_style"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role"
+            app:layout_constraintTop_toBottomOf="@id/tv_date"
+            android:text="发售价"
+            android:id="@+id/tv_price"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_black_text_style"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_price"
+            android:text="122209元"
+            android:id="@+id/tv_price_name"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_grey_text_style"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role"
+            app:layout_constraintTop_toBottomOf="@id/tv_price"
+            android:text="造型师"
+            android:id="@+id/tv_stylist"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_black_text_style"
+            android:text="安藤贵和"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_stylist"
+            android:id="@+id/tv_stylist_name"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_grey_text_style"
+            android:text="类别"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role"
+            app:layout_constraintTop_toBottomOf="@id/tv_stylist"
+            android:id="@+id/tv_kind"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_kind_name"
+            style="@style/garakit_detail_black_text_style"
+            app:layout_constraintBottom_toBottomOf="@id/tv_kind"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role_name"
+            android:text="比例手办"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_grey_text_style"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role"
+            app:layout_constraintTop_toBottomOf="@id/tv_kind"
+            android:text="高度"
+            android:id="@+id/tv_height"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_black_text_style"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_height"
+            android:id="@+id/tv_height_name"
+            android:text="20cm"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_grey_text_style"
+            android:text="重量"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role"
+            app:layout_constraintTop_toBottomOf="@id/tv_height"
+            android:id="@+id/tv_weight"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/garakit_detail_black_text_style"
+            android:text="90kg"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_weight"
+            android:id="@+id/tv_weight_name"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_material"
+            style="@style/garakit_detail_grey_text_style"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role"
+            app:layout_constraintTop_toBottomOf="@id/tv_weight"
+            android:text="材质"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@id/tv_role_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_material"
+            android:text="PVC"
+            style="@style/garakit_detail_black_text_style"
+            android:id="@+id/tv_material_name"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_material"
+            android:layout_marginTop="20dp"
+            android:id="@+id/rv_change_users"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_feedback"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintTop_toBottomOf="@id/rv_change_users"
+            android:layout_marginTop="20dp"
+            android:textSize="16dp"
+            android:text="反馈问题"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="22dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@id/tv_feedback"
+            app:layout_constraintRight_toLeftOf="@id/tv_feedback"
+            android:layout_marginRight="22dp"
+            android:text="更新数据"
+            android:id="@+id/tv_update"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

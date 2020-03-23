@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
         <variable
@@ -106,17 +107,18 @@
             android:background="@color/white"
             />
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="24dp"-->
-<!--            app:layout_constraintLeft_toRightOf="@id/tv_role"-->
-<!--            app:layout_constraintRight_toLeftOf="@id/tv_filter"-->
-<!--            app:layout_constraintTop_toTopOf="@id/tv_role"-->
-<!--            app:layout_constraintBottom_toBottomOf="@id/tv_role"-->
-<!--            android:layout_marginLeft="15dp"-->
-<!--            android:layout_marginRight="15dp"-->
-<!--            android:id="@+id/rv_role"-->
-<!--            />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            app:layout_constraintLeft_toRightOf="@id/tv_role"
+            app:layout_constraintRight_toLeftOf="@id/tv_filter"
+            app:layout_constraintTop_toTopOf="@id/tv_role"
+            app:layout_constraintBottom_toBottomOf="@id/tv_role"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:id="@+id/rv_role"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -289,9 +291,6 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/fl_divider_line"
             android:id="@+id/rv_garagekit"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:itemBinding="@{homeViewModel.itemBinding}"
-            app:items="@{homeViewModel.items}"
             />
 
 

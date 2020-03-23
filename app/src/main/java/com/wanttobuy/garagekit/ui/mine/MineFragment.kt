@@ -20,6 +20,13 @@ class MineFragment : BaseFragment<MineViewModel,FragmentMineBinding>() {
 
     private lateinit var mineViewModel: MineViewModel
 
+
+    override fun lazyLoadData() {
+
+
+
+    }
+
 //    override fun onCreateView(
 //        inflater: LayoutInflater,
 //        container: ViewGroup?,

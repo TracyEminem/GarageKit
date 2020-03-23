@@ -13,5 +13,8 @@
     <color name="star_fill">#ffc149</color>
     <color name="light_black">#555555</color>
 
+    <color name="divider">#F2F2F2</color>
+    <color name="hint_text_color">#CCCCCC</color>
+
 
 </resources>

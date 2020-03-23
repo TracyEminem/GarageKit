@@ -3,4 +3,6 @@
     <string name="title_home">手办</string>
     <string name="title_dashboard">社区</string>
     <string name="title_notifications">我的</string>
+
+    <string name="divider">/</string>
 </resources>

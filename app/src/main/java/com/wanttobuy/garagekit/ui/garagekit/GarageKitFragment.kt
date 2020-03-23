@@ -3,7 +3,8 @@ package com.wanttobuy.garagekit.ui.garagekit
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
-import com.flyco.tablayout.listener.CustomTabEntity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.drakeet.multitype.MultiTypeAdapter
 import com.google.android.material.tabs.TabLayout
 import com.wanttobuy.garagekit.GaragekitApplication
 import com.wanttobuy.garagekit.R
@@ -23,15 +24,20 @@ class GarageKitFragment : BaseFragment<GarageKitViewModel,FragmentGaragekitBindi
     lateinit var mSeriesTabs : ArrayList<String>
     lateinit var mYearTabs : ArrayList<String>
 
+    lateinit var mGaragekitAdapter : GarakitBinder
+//    lateinit var items:MutableList<Any>
+//    lateinit var mAdapter :MultiTypeAdapter
+
     override fun layoutId(): Int {
         return R.layout.fragment_garagekit
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-
-
-
-
+        mGaragekitAdapter = GarakitBinder()
+//        mAdapter = MultiTypeAdapter(items)
+        multiTypeAdapter.register(mGaragekitAdapter)
+        mBinding?.rvGaragekit?.adapter = multiTypeAdapter
+        mBinding?.rvGaragekit?.layoutManager = LinearLayoutManager(activity)
     }
 
     override fun lazyLoadData() {
@@ -75,6 +81,22 @@ class GarageKitFragment : BaseFragment<GarageKitViewModel,FragmentGaragekitBindi
             banner.setImages(imageList)
             banner.start()
         })
+
+        viewModel.garageKitItem.observe(this, Observer {
+//            Log.e("EEEEE","---size----"+it.size)
+//            item.addAll(it)
+//            multiTypeAdapter.items = item
+//            multiTypeAdapter.notifyDataSetChanged()
+            addMore(it)
+//            item.clear()
+////            for (i in 0 until it.size){
+//                item.addAll(it)
+//                multiTypeAdapter
+//            }
+
+        })
+
+
 
     }
 

@@ -1,6 +1,7 @@
 package com.wanttobuy.garagekit.base
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,40 +44,52 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
 
     private var dialog: MaterialDialog? = null
 
+    protected var isNavigationViewInit = false//记录是否已经初始化过一次视图
+    private var lastView: View? = null//记录上次创建的view
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val cls =
-            (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<*>
-        if (ViewDataBinding::class.java != cls && ViewDataBinding::class.java.isAssignableFrom(cls)) {
-            mBinding = DataBindingUtil.inflate(inflater, layoutId(), container, false)
-            return mBinding?.root
+
+        //如果fragment的view已经创建则不再重新创建
+        if (lastView == null) {
+            Log.e("EEEEE","---onCreateView--"+isNavigationViewInit)
+            val cls =
+                (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<*>
+            if (ViewDataBinding::class.java != cls && ViewDataBinding::class.java.isAssignableFrom(cls)) {
+                mBinding = DataBindingUtil.inflate(inflater, layoutId(), container, false)
+                return mBinding?.root
+            }
+            lastView = super.onCreateView(inflater, container, savedInstanceState)
         }
-        return inflater.inflate(layoutId(), container, false)
+//        return lastView
+        return lastView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        onVisible()
-        createViewModel()
-        lifecycle.addObserver(viewModel)
-        //注册 UI事件
-        registorDefUIChange()
-        initView(savedInstanceState)
-
-        item = ArrayList()
-        multiTypeAdapter = MultiTypeAdapter(item)
-
+        Log.e("EEEEEEE", "----onViewdsadsadsaCreated---" + isNavigationViewInit)
+        if(!isNavigationViewInit) {
+            super.onViewCreated(view, savedInstanceState)
+            onVisible()
+            createViewModel()
+            lifecycle.addObserver(viewModel)
+            //注册 UI事件
+            item = ArrayList()
+            multiTypeAdapter = MultiTypeAdapter(item)
+            registorDefUIChange()
+            initView(savedInstanceState)
+            isNavigationViewInit = true
+            Log.e("EEEEEEE", "----onViewCreated---" + isNavigationViewInit)
+        }
     }
 
     fun insertData(){
 
     }
 
-    fun addMore(addItem:MutableList<Any>){
+    fun addMore(addItem:List<Any>){
         val tempCount = item.size
         item.addAll(addItem)
         multiTypeAdapter.notifyItemRangeChanged(tempCount - 1,item.size)
@@ -96,6 +109,7 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
      */
     private fun onVisible() {
         if (lifecycle.currentState == Lifecycle.State.STARTED && isFirst) {
+            Log.e("EEEEEEE","-------"+isNavigationViewInit)
             lazyLoadData()
             isFirst = false
         }
