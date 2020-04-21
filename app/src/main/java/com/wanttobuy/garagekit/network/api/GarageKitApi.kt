@@ -1,8 +1,10 @@
 package com.wanttobuy.garagekit.network.api
 
+import com.wanttobuy.garagekit.base.BaseListResponse
 import com.wanttobuy.garagekit.base.BaseResponse
 import com.wanttobuy.garagekit.data.account.Register
 import com.wanttobuy.garagekit.data.banner.BannerData
+import com.wanttobuy.garagekit.data.bbs.PostListData
 import com.wanttobuy.garagekit.data.bbs.bbs
 import com.wanttobuy.garagekit.data.category.Category
 import com.wanttobuy.garagekit.data.comment.CommentDetail
@@ -43,7 +45,7 @@ interface GarageKitApi {
     suspend fun logout()
 
     @POST("client/bbs/signIn")
-    suspend fun signIn():BaseResponse<SignInData>
+    suspend fun signIn():BaseResponse<Any>
 
     @GET("client/category/getList")
     suspend fun getCategory():BaseResponse<Category>
@@ -67,6 +69,9 @@ interface GarageKitApi {
 
     @GET("client/hobby/getPagedList")
     suspend fun getPageList():BaseResponse<GarageKitList>
+
+    @GET("client/bbs/getPagedList")
+    suspend fun getBBSList():BaseResponse<BaseListResponse<List<PostListData>>>
 
     @GET("client/hobby/getDetailInfo")
     suspend fun getDetail(@Query("id") id: String): BaseResponse<GarageKitDetail>
@@ -154,9 +159,6 @@ interface GarageKitApi {
     @POST("client/bbs/commentZan")
     @FormUrlEncoded
     suspend fun commentZan(@Field("comment_id") comment_id:String):BaseResponse<Any>
-
-//    @POST("/client/bbs/signIn")
-//    suspend fun signIn():BaseResponse<Any>
 
     @POST("client/bbs/commentReport")
     @FormUrlEncoded

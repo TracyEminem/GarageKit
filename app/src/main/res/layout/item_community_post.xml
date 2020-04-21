@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="postData"
+            type="com.wanttobuy.garagekit.data.bbs.PostListData" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:layout_width="24dp"
@@ -13,6 +24,7 @@
         android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:roundAsCircle="true"
+        bind:url="@{postData.user.avatar_url}"
         />
 
     <TextView
@@ -25,7 +37,7 @@
         app:layout_constraintBottom_toBottomOf="@id/sdv_avatar"
         android:id="@+id/tv_name"
         android:layout_marginLeft="10dp"
-        android:text="name"
+        android:text="@{postData.user.nickname}"
         />
 
     <TextView
@@ -71,6 +83,7 @@
         app:layout_constraintRight_toRightOf="@id/tv_detail"
         android:layout_marginTop="5dp"
         android:id="@+id/tv_title"
+        android:text="@{postData.title}"
         />
 
     <LinearLayout
@@ -82,6 +95,7 @@
         android:id="@+id/ll_photo"
         app:layout_constraintLeft_toLeftOf="@id/sdv_avatar"
         app:layout_constraintRight_toRightOf="@id/tv_detail"
+        android:visibility="gone"
         >
 
         <com.facebook.drawee.view.SimpleDraweeView
@@ -118,9 +132,9 @@
         android:textSize="12dp"
         android:textColor="@color/grey_text"
         app:layout_constraintTop_toBottomOf="@id/ll_photo"
-        app:layout_constraintLeft_toLeftOf="@id/ll_photo"
+        app:layout_constraintLeft_toLeftOf="@id/sdv_avatar"
         android:layout_marginTop="10dp"
-        android:text="15分钟前"
+        android:text="@{postData.diff_for_humans}"
         android:id="@+id/tv_time"
         />
 
@@ -129,9 +143,9 @@
         android:layout_height="wrap_content"
         android:textColor="@color/grey_text"
         android:textSize="12dp"
-        app:layout_constraintRight_toRightOf="@id/ll_photo"
+        app:layout_constraintRight_toRightOf="@id/star_count"
         app:layout_constraintTop_toTopOf="@id/tv_time"
-        android:text="推荐157"
+        android:text="@{postData.zan_count}"
         android:id="@+id/tv_recommend"
         />
 
@@ -143,7 +157,7 @@
         app:layout_constraintRight_toLeftOf="@id/tv_recommend"
         app:layout_constraintTop_toTopOf="@id/tv_recommend"
         android:layout_marginRight="20dp"
-        android:text="评论67"
+        android:text="@{postData.comment_count}"
         />
 
     <FrameLayout
@@ -154,4 +168,6 @@
         android:layout_marginTop="15dp"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -6,6 +6,9 @@
         <variable
             name="notificationViewModel"
             type="com.wanttobuy.garagekit.ui.mine.MineViewModel" />
+        <variable
+            name="mydata"
+            type="com.wanttobuy.garagekit.data.mine.MyHome" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,7 +51,7 @@
             android:layout_marginLeft="20dp"
             android:textSize="16dp"
             android:textColor="@color/white"
-            android:text="名字"
+            android:text=""
             android:id="@+id/tv_name"
             app:layout_constraintBottom_toTopOf="@+id/progress_next_level"
             />

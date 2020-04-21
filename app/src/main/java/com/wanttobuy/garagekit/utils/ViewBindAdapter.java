@@ -14,4 +14,6 @@ public class ViewBindAdapter {
             imageView.setImageURI(Uri.parse(uri));
         }
     }
+
+
 }

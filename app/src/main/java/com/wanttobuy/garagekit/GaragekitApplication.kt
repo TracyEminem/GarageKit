@@ -33,7 +33,7 @@ class GaragekitApplication : BaseApplication() {
             setSingleTagSwitch(true)
         }
 
-        SharedPreferenceUtils.putString(PREF_ACCESS_TOKEN_AUTH,"BearereyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkuZ2suYWlkcmVhbWFpLmNuXC9jbGllbnRcL2FjY291bnRcL2xvZ2luQnlNb2JpbGUiLCJpYXQiOjE1Nzk1NzQ0MDMsImV4cCI6MTU4NDc1ODQwMywibmJmIjoxNTc5NTc0NDAzLCJqdGkiOiJqb0VhUGlqTk1mUUIxYnR4Iiwic3ViIjoxMywicHJ2IjoiZTBiYjE2OTNmNGM3NTk1NDgwNDkyNDE0ZTBmNjQzOGYxYzYyNDkxNyJ9._Rti6NO06gcWGExqbltJ17ueI4Wbu3ga4xTp2X07adI",this)
+        SharedPreferenceUtils.putString(PREF_ACCESS_TOKEN_AUTH,"BearereyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmdrLmFpZHJlYW1haS5jblwvY2xpZW50XC9hY2NvdW50XC9sb2dpbiIsImlhdCI6MTU4NTcyMjk4MiwiZXhwIjoxNTkwOTA2OTgyLCJuYmYiOjE1ODU3MjI5ODIsImp0aSI6ImpKMFFCMzM0cktOVG1sR2MiLCJzdWIiOjI0LCJwcnYiOiJlMGJiMTY5M2Y0Yzc1OTU0ODA0OTI0MTRlMGY2NDM4ZjFjNjI0OTE3In0.GSCqfa_pH4-VI66La9WoHwv2GqXe2N5KL5K0nNsuwJY",this)
 
         var listenerset : MutableSet<RequestListener> = HashSet()
         listenerset.add(FrescoTraceListener())

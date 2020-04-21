@@ -84,6 +84,8 @@ class GarageKitNetwork {
 
     suspend fun zan(id: String) = mService.zan(id)
 
+    suspend fun getBBSList() = mService.getBBSList()
+
 //    suspend fun
 
 

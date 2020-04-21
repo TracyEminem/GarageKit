@@ -1,8 +1,10 @@
 package com.wanttobuy.garagekit.data
 
 import com.aleyn.mvvm.base.BaseModel
+import com.wanttobuy.garagekit.base.BaseListResponse
 import com.wanttobuy.garagekit.base.BaseResponse
 import com.wanttobuy.garagekit.data.banner.BannerData
+import com.wanttobuy.garagekit.data.bbs.PostListData
 import com.wanttobuy.garagekit.data.category.Category
 import com.wanttobuy.garagekit.data.garageKit.GarageKitList
 import com.wanttobuy.garagekit.data.http.GarageKitNetwork
@@ -29,7 +31,7 @@ class GarageKitRepository private constructor(private val network: GarageKitNetw
         network.logout()
     }
 
-    suspend fun signIn() : BaseResponse<SignInData>{
+    suspend fun signIn() : BaseResponse<Any>{
         return network.signIn()
     }
 
@@ -74,6 +76,9 @@ class GarageKitRepository private constructor(private val network: GarageKitNetw
     }
 
 
+    suspend fun getBBSList() : BaseResponse<BaseListResponse<List<PostListData>>>{
+        return network.getBBSList()
+    }
 
 
     companion object{

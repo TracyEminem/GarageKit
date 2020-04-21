@@ -5,19 +5,19 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
 
-    <keep_state_fragment
+    <fragment
         android:id="@+id/navigation_home"
         android:name="com.wanttobuy.garagekit.ui.garagekit.GarageKitFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_garagekit" />
 
-    <keep_state_fragment
+    <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.wanttobuy.garagekit.ui.community.CommunityFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_community" />
 
-    <keep_state_fragment
+    <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.wanttobuy.garagekit.ui.mine.MineFragment"
         android:label="@string/title_notifications"
